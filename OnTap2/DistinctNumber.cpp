@@ -20,7 +20,7 @@ int main() {
     vector<int> arr;
     int num;
     
-    while(cin>> num && num>+0) {
+    while(cin>> num && num>0) {
         arr.push_back(num);
     }
     
