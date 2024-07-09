@@ -1,7 +1,6 @@
 # depslib dependency file v1.0
-1584205420 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
-	<exception>
-	<string>
+1720538970 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<SDL.h>
+	<SDL_image.h>
 
