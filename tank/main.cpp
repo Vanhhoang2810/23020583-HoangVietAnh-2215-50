@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <SDL.h>
 #include <SDL_image.h>
 
@@ -24,6 +25,66 @@ bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
+
+bool checkCollision(const SDL_Rect& a, const SDL_Rect& b) {
+    return SDL_HasIntersection(&a, &b);
+}
+
+void keepInWindow(SDL_Rect& obj1, SDL_Rect& obj2, int width, int height) {
+    if (obj1.x < 0) {
+        obj1.x = 0;
+    }
+    if (obj1.x + obj1.w > width) {
+        obj1.x = width - obj1.w;
+    }
+    if (obj1.y < 0) {
+        obj1.y = 0;
+    }
+    if (obj1.y + obj1.h > height) {
+        obj1.y = height - obj1.h;
+    }
+    if (obj2.x < 0) {
+        obj2.x = 0;
+    }
+    if (obj2.x + obj2.w > width) {
+        obj2.x = width - obj2.w;
+    }
+    if (obj2.y < 0) {
+        obj2.y = 0;
+    }
+    if (obj2.y + obj2.h > height) {
+        obj2.y = height - obj2.h;
+    }
+}
+
+void collision(SDL_Rect& obj1, SDL_Rect& obj2) {
+    bool colliding = true;
+    while (colliding) {
+        colliding = false;
+        int deltaX = (obj1.x + obj1.w / 2) - (obj2.x + obj2.w / 2);
+        int deltaY = (obj1.y + obj1.h / 2) - (obj2.y + obj2.h / 2);
+
+        if (abs(deltaX) > abs(deltaY)) {
+            if(deltaX > 0) {
+                obj1.x += 1;
+            } else {
+                obj1.x -= 1;
+            }
+            if (checkCollision(obj1, obj2)) {
+                colliding = true;
+            }
+        } else {
+            if(deltaY > 0) {
+                obj1.y += 1;
+            } else {
+                obj1.y -= 1;
+            }
+            if (checkCollision(obj1, obj2)) {
+                colliding = true;
+            }
+        }
+    }
+}
 
 bool inputHandling(SDL_Event ev) {
     while(SDL_PollEvent(&ev)) {
@@ -134,6 +195,12 @@ int main(int argc, char* argv[]) {
                 tank2Angle = 90;
             }
         }
+
+        keepInWindow(dstTank1, dstTank2, SCREEN_WIDTH, SCREEN_HEIGHT);
+        if (dstTank1.x < dstTank2.x + dstTank2.w && dstTank1.x + dstTank1.w > dstTank2.x && dstTank1.y < dstTank2.y + dstTank2.h && dstTank1.y + dstTank1.h > dstTank2.y) {
+            collision(dstTank1, dstTank2);
+        }
+
         SDL_RenderCopy(renderer, background, NULL, NULL);
         SDL_RenderCopyEx(renderer, tank1, NULL, &dstTank1, tank1Angle, NULL, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, tank2, NULL, &dstTank2, tank2Angle, NULL, SDL_FLIP_NONE);
@@ -148,9 +215,11 @@ int main(int argc, char* argv[]) {
     SDL_DestroyTexture(background);
     SDL_DestroyTexture(tank1);
     SDL_DestroyTexture(tank2);
+
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
 
-    SDL_QUIT;
+    IMG_Quit();
+    SDL_Quit();
     return 0;
 }
