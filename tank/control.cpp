@@ -25,6 +25,10 @@ bool inputHandling(SDL_Event ev) {
                 left2 = true;
             } else if (ev.key.keysym.sym == SDLK_RIGHT) {
                 right2 = true;
+            } else if (ev.key.keysym.sym == SDLK_KP_1) {
+                shoot2 = true;
+            } else if (ev.key.keysym.sym == SDLK_SPACE) {
+                shoot1 = true;
             }
             break;
         case SDL_KEYUP:
@@ -44,7 +48,13 @@ bool inputHandling(SDL_Event ev) {
                 left2 = false;
             } else if (ev.key.keysym.sym == SDLK_RIGHT) {
                 right2 = false;
+            } else if (ev.key.keysym.sym == SDLK_KP_1) {
+                shoot2 = false;
+            } else if (ev.key.keysym.sym == SDLK_SPACE) {
+                shoot1 = false;
             }
+
+
             break;
         }
     }

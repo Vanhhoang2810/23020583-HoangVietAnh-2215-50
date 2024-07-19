@@ -2,14 +2,17 @@
 #include <algorithm>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <vector>
 #include "Control.h"
 #include "collision.h"
+#include "bullets.h"
 
 using namespace std;
 
 const int SCREEN_WIDTH = 720;
 const int SCREEN_HEIGHT = 720;
 const int MOVE_SPEED = 1;
+const int FIRE_RATE = 200;
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -17,16 +20,22 @@ SDL_Rect dstTank1, dstTank2;
 SDL_Texture* background = NULL;
 SDL_Texture* tank1 = NULL;
 SDL_Texture* tank2 = NULL;
+SDL_Texture* bulletTex = NULL;
 
 bool up1 = false;
 bool down1 = false;
 bool left1 = false;
 bool right1 = false;
+bool shoot1 = false;
 
 bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
+bool shoot2 = false;
+
+int timer1 = 0, timer2 = 0;
+
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -36,6 +45,7 @@ int main(int argc, char* argv[]) {
     background = IMG_LoadTexture(renderer, "img/background.png");
     tank1 = IMG_LoadTexture(renderer, "img/tank1.png");
     tank2 = IMG_LoadTexture(renderer, "img/tank2.png");
+    bulletTex = IMG_LoadTexture(renderer, "img/bullet.png");
 
     dstTank1.x = 0;
     dstTank1.y = SCREEN_HEIGHT / 2;
@@ -85,6 +95,17 @@ int main(int argc, char* argv[]) {
                 dstTank2.x += MOVE_SPEED;
                 tank2Angle = 90;
             }
+
+            if (shoot1){
+                shootBullet(dstTank1.x, dstTank1.y, tank1Angle, timer1, 1);
+            }
+            if (shoot2) {
+                shootBullet(dstTank2.x, dstTank2.y, tank2Angle, timer2, 2);
+            }
+            updateBullet(SCREEN_WIDTH, SCREEN_HEIGHT);
+            past = now;
+            timer1 += 10;
+            timer2 += 10;
         }
 
         keepInWindow(dstTank1, dstTank2, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -92,9 +113,12 @@ int main(int argc, char* argv[]) {
             collision(dstTank1, dstTank2);
         }
 
+
+
         SDL_RenderCopy(renderer, background, NULL, NULL);
         SDL_RenderCopyEx(renderer, tank1, NULL, &dstTank1, tank1Angle, NULL, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, tank2, NULL, &dstTank2, tank2Angle, NULL, SDL_FLIP_NONE);
+        renderBullet();
 
         SDL_RenderPresent(renderer);
 
@@ -106,6 +130,7 @@ int main(int argc, char* argv[]) {
     SDL_DestroyTexture(background);
     SDL_DestroyTexture(tank1);
     SDL_DestroyTexture(tank2);
+    SDL_DestroyTexture(bulletTex);
 
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);

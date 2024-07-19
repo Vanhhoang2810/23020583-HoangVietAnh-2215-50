@@ -1,15 +1,18 @@
 # depslib dependency file v1.0
-1721350489 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
+1721381060 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
 	<SDL_image.h>
+	<vector>
+	"Control.h"
+	"collision.h"
+	"bullets.h"
+
+1721380452 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.cpp
 	"Control.h"
 
-1721351216 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.cpp
-	"Control.h"
-
-1721351187 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.h
+1721380471 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.h
 	<iostream>
 	<SDL.h>
 
@@ -19,4 +22,14 @@
 1721351330 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\collision.h
 	<iostream>
 	<SDL.h>
+
+1721381025 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.h
+	<iostream>
+	<cmath>
+	<algorithm>
+	<SDL.h>
+	<vector>
+
+1721381069 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+	"bullets.h"
 
