@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Control.h"
+#include "collision.h"
 
 using namespace std;
 
@@ -25,117 +27,6 @@ bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
-
-bool checkCollision(const SDL_Rect& a, const SDL_Rect& b) {
-    return SDL_HasIntersection(&a, &b);
-}
-
-void keepInWindow(SDL_Rect& obj1, SDL_Rect& obj2, int width, int height) {
-    if (obj1.x < 0) {
-        obj1.x = 0;
-    }
-    if (obj1.x + obj1.w > width) {
-        obj1.x = width - obj1.w;
-    }
-    if (obj1.y < 0) {
-        obj1.y = 0;
-    }
-    if (obj1.y + obj1.h > height) {
-        obj1.y = height - obj1.h;
-    }
-    if (obj2.x < 0) {
-        obj2.x = 0;
-    }
-    if (obj2.x + obj2.w > width) {
-        obj2.x = width - obj2.w;
-    }
-    if (obj2.y < 0) {
-        obj2.y = 0;
-    }
-    if (obj2.y + obj2.h > height) {
-        obj2.y = height - obj2.h;
-    }
-}
-
-void collision(SDL_Rect& obj1, SDL_Rect& obj2) {
-    bool colliding = true;
-    while (colliding) {
-        colliding = false;
-        int deltaX = (obj1.x + obj1.w / 2) - (obj2.x + obj2.w / 2);
-        int deltaY = (obj1.y + obj1.h / 2) - (obj2.y + obj2.h / 2);
-
-        if (abs(deltaX) > abs(deltaY)) {
-            if(deltaX > 0) {
-                obj1.x += 1;
-            } else {
-                obj1.x -= 1;
-            }
-            if (checkCollision(obj1, obj2)) {
-                colliding = true;
-            }
-        } else {
-            if(deltaY > 0) {
-                obj1.y += 1;
-            } else {
-                obj1.y -= 1;
-            }
-            if (checkCollision(obj1, obj2)) {
-                colliding = true;
-            }
-        }
-    }
-}
-
-bool inputHandling(SDL_Event ev) {
-    while(SDL_PollEvent(&ev)) {
-        switch(ev.type) {
-        case SDL_QUIT:
-            return false;
-            break;
-        case SDL_KEYDOWN:
-            if (ev.key.keysym.sym == SDLK_ESCAPE) {
-                return false;
-            } else if (ev.key.keysym.sym == SDLK_w) {
-                up1 = true;
-            } else if (ev.key.keysym.sym == SDLK_s) {
-                down1 = true;
-            } else if (ev.key.keysym.sym == SDLK_a) {
-                left1 = true;
-            } else if (ev.key.keysym.sym == SDLK_d) {
-                right1 = true;
-            } else if (ev.key.keysym.sym == SDLK_UP) {
-                up2 = true;
-            } else if (ev.key.keysym.sym == SDLK_DOWN) {
-                down2 = true;
-            } else if (ev.key.keysym.sym == SDLK_LEFT) {
-                left2 = true;
-            } else if (ev.key.keysym.sym == SDLK_RIGHT) {
-                right2 = true;
-            }
-            break;
-        case SDL_KEYUP:
-            if (ev.key.keysym.sym == SDLK_w) {
-                up1 = false;
-            } else if (ev.key.keysym.sym == SDLK_s) {
-                down1 = false;
-            } else if (ev.key.keysym.sym == SDLK_a) {
-                left1 = false;
-            } else if (ev.key.keysym.sym == SDLK_d) {
-                right1 = false;
-            } else if (ev.key.keysym.sym == SDLK_UP) {
-                up2 = false;
-            } else if (ev.key.keysym.sym == SDLK_DOWN) {
-                down2 = false;
-            } else if (ev.key.keysym.sym == SDLK_LEFT) {
-                left2 = false;
-            } else if (ev.key.keysym.sym == SDLK_RIGHT) {
-                right2 = false;
-            }
-            break;
-        }
-    }
-    return true;
-}
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
