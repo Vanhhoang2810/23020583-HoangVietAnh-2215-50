@@ -1,8 +1,5 @@
 #include "bullets.h"
 
-vector<Bullet> bullets;
-
-
 void shootBullet(int tankX, int tankY, float angle, int& timer, int tankID) {
     if (timer >= FIRE_RATE) {
         Bullet bullet;
@@ -37,12 +34,44 @@ void updateBullet(int width, int height) {
             if (bullets[i].rect.x < 0 || bullets[i].rect.x > width || bullets[i].rect.y < 0 || bullets[i].rect.y > height) {
                 bullets[i].active = false;
             }
-
-
         }
     }
 
     bullets.erase(remove_if(bullets.begin(), bullets.end(), [](const Bullet& b) { return !b.active; }), bullets.end());
+}
+
+void bulletCollision() {
+    for (int i = 0; i<bullets.size(); i++) {
+        if (bullets[i].active) {
+            if (bullets[i].tankID == 1) {
+                if (checkCollision(bullets[i].rect, dstTank2)) {
+                    hit2 = true;
+                    bullets[i].active = false;
+                    dstTank1.x = 0;
+                    dstTank1.y = SCREEN_HEIGHT / 2;
+                    dstTank2.x = SCREEN_WIDTH - 64;
+                    dstTank2.y = SCREEN_HEIGHT / 2;
+                }
+            } else if (bullets[i].tankID == 2) {
+                if (checkCollision(bullets[i].rect, dstTank1)) {
+                    hit1 = true;
+                    bullets[i].active = false;
+                    dstTank1.x = 0;
+                    dstTank1.y = SCREEN_HEIGHT / 2;
+                    dstTank2.x = SCREEN_WIDTH - 64;
+                    dstTank2.y = SCREEN_HEIGHT / 2;
+
+                }
+            }
+        }
+
+        for (int j = i + 1; j < bullets.size(); j++) {
+            if (bullets[j].active && checkCollision(bullets[i].rect, bullets[j].rect)) {
+                bullets[i].active = false;
+                bullets[j].active = false;
+            }
+        }
+    }
 }
 
 

@@ -27,15 +27,18 @@ bool down1 = false;
 bool left1 = false;
 bool right1 = false;
 bool shoot1 = false;
+bool hit1 = false;
 
 bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
 bool shoot2 = false;
+bool hit2 = false;
 
 int timer1 = 0, timer2 = 0;
 
+vector<Bullet> bullets;
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -103,6 +106,8 @@ int main(int argc, char* argv[]) {
                 shootBullet(dstTank2.x, dstTank2.y, tank2Angle, timer2, 2);
             }
             updateBullet(SCREEN_WIDTH, SCREEN_HEIGHT);
+            bulletCollision();
+
             past = now;
             timer1 += 10;
             timer2 += 10;
@@ -118,6 +123,7 @@ int main(int argc, char* argv[]) {
         SDL_RenderCopy(renderer, background, NULL, NULL);
         SDL_RenderCopyEx(renderer, tank1, NULL, &dstTank1, tank1Angle, NULL, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, tank2, NULL, &dstTank2, tank2Angle, NULL, SDL_FLIP_NONE);
+
         renderBullet();
 
         SDL_RenderPresent(renderer);

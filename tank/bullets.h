@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <SDL.h>
 #include <vector>
+#include "collision.h"
 
 using namespace std;
 
@@ -10,6 +11,9 @@ using namespace std;
 extern const int FIRE_RATE;
 extern SDL_Renderer* renderer;
 extern SDL_Texture* bulletTex;
+extern bool hit1, hit2;
+extern SDL_Rect dstTank1, dstTank2;
+extern const int SCREEN_HEIGHT, SCREEN_WIDTH;
 
 struct Bullet {
     SDL_Rect rect;
@@ -18,8 +22,12 @@ struct Bullet {
     int tankID;
 };
 
+extern vector<Bullet> bullets;
+
 void shootBullet(int TankX, int TankY, float angle, int &timer, int tankID);
 
 void renderBullet();
 
 void updateBullet(int width, int height);
+
+void bulletCollision();

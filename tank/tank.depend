@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1721381060 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
+1721660564 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -23,13 +23,14 @@
 	<iostream>
 	<SDL.h>
 
-1721381025 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.h
+1721660564 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.h
 	<iostream>
 	<cmath>
 	<algorithm>
 	<SDL.h>
 	<vector>
+	"collision.h"
 
-1721381069 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+1721660487 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
 	"bullets.h"
 
