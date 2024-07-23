@@ -1,13 +1,15 @@
 # depslib dependency file v1.0
-1721660564 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
+1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
+	<SDL_ttf.h>
 	"Control.h"
 	"collision.h"
 	"bullets.h"
+	"point.h"
 
 1721380452 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.cpp
 	"Control.h"
@@ -23,7 +25,7 @@
 	<iostream>
 	<SDL.h>
 
-1721660564 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.h
+1721732104 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.h
 	<iostream>
 	<cmath>
 	<algorithm>
@@ -31,6 +33,12 @@
 	<vector>
 	"collision.h"
 
-1721660487 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
 	"bullets.h"
+
+1721732789 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\point.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
 

@@ -52,6 +52,8 @@
 		<Unit filename="control.cpp" />
 		<Unit filename="control.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="point.cpp" />
+		<Unit filename="point.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

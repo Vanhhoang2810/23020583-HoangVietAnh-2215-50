@@ -47,6 +47,7 @@ void bulletCollision() {
                 if (checkCollision(bullets[i].rect, dstTank2)) {
                     hit2 = true;
                     bullets[i].active = false;
+                    point1++;
                     dstTank1.x = 0;
                     dstTank1.y = SCREEN_HEIGHT / 2;
                     dstTank2.x = SCREEN_WIDTH - 64;
@@ -56,6 +57,7 @@ void bulletCollision() {
                 if (checkCollision(bullets[i].rect, dstTank1)) {
                     hit1 = true;
                     bullets[i].active = false;
+                    point2++;
                     dstTank1.x = 0;
                     dstTank1.y = SCREEN_HEIGHT / 2;
                     dstTank2.x = SCREEN_WIDTH - 64;

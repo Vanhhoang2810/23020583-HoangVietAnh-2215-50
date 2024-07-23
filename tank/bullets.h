@@ -14,6 +14,7 @@ extern SDL_Texture* bulletTex;
 extern bool hit1, hit2;
 extern SDL_Rect dstTank1, dstTank2;
 extern const int SCREEN_HEIGHT, SCREEN_WIDTH;
+extern int point1, point2;
 
 struct Bullet {
     SDL_Rect rect;

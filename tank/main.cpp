@@ -3,9 +3,11 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <vector>
+#include <SDL_ttf.h>
 #include "Control.h"
 #include "collision.h"
 #include "bullets.h"
+#include "point.h"
 
 using namespace std;
 
@@ -37,6 +39,7 @@ bool shoot2 = false;
 bool hit2 = false;
 
 int timer1 = 0, timer2 = 0;
+int point1 = 0, point2 = 0;
 
 vector<Bullet> bullets;
 
@@ -44,6 +47,9 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);
     SDL_SetWindowTitle(window, "Tank Trouble");
+
+    TTF_Init();
+    TTF_Font* font = TTF_OpenFont("font/Peepo.ttf", 18);
 
     background = IMG_LoadTexture(renderer, "img/background.png");
     tank1 = IMG_LoadTexture(renderer, "img/tank1.png");
@@ -123,6 +129,7 @@ int main(int argc, char* argv[]) {
         SDL_RenderCopy(renderer, background, NULL, NULL);
         SDL_RenderCopyEx(renderer, tank1, NULL, &dstTank1, tank1Angle, NULL, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, tank2, NULL, &dstTank2, tank2Angle, NULL, SDL_FLIP_NONE);
+        renderScores(renderer, font, point1, point2);
 
         renderBullet();
 
