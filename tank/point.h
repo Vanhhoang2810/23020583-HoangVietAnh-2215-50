@@ -5,6 +5,6 @@
 
 using namespace std;
 
-extern const int SCREEN_HEIGHT, SCREEN_WIDTH;`
+extern const int SCREEN_HEIGHT, SCREEN_WIDTH;
 
 void renderScores(SDL_Renderer* renderer, TTF_Font* font, int score1, int score2);

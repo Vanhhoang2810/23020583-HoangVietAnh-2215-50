@@ -8,6 +8,8 @@
 #include "collision.h"
 #include "bullets.h"
 #include "point.h"
+#include "menu.h"
+
 
 using namespace std;
 
@@ -50,6 +52,15 @@ int main(int argc, char* argv[]) {
 
     TTF_Init();
     TTF_Font* font = TTF_OpenFont("font/Peepo.ttf", 18);
+
+    if (!showMenu(renderer, font)) {
+        SDL_DestroyWindow(window);
+        SDL_DestroyRenderer(renderer);
+        TTF_Quit();
+        SDL_Quit();
+        return 0;
+    }
+
 
     background = IMG_LoadTexture(renderer, "img/background.png");
     tank1 = IMG_LoadTexture(renderer, "img/tank1.png");

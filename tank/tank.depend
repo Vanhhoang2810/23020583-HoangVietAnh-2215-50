@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
+1721999415 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -10,6 +10,7 @@
 	"collision.h"
 	"bullets.h"
 	"point.h"
+	"menu.h"
 
 1721380452 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.cpp
 	"Control.h"
@@ -36,8 +37,19 @@
 1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\bullets.cpp
 	"bullets.h"
 
-1721732789 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\point.h
+1721999460 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\point.h
 	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
+
+1721732151 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\point.cpp
+	"point.h"
+
+1722000461 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.cpp
+	"menu.h"
+
+1721999453 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
