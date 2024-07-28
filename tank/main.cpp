@@ -9,7 +9,7 @@
 #include "bullets.h"
 #include "point.h"
 #include "menu.h"
-
+#include "end.h"
 
 using namespace std;
 
@@ -45,6 +45,20 @@ int point1 = 0, point2 = 0;
 
 vector<Bullet> bullets;
 
+void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_Color color, int y, SDL_Rect* rect) {
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    int x = (720 - textSurface->w) / 2;
+    SDL_Rect textRect = {x, y, textSurface->w, textSurface->h};
+    if (rect) {
+        *rect = textRect;
+    }
+    SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(textTexture);
+}
+
+
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);
@@ -52,8 +66,9 @@ int main(int argc, char* argv[]) {
 
     TTF_Init();
     TTF_Font* font = TTF_OpenFont("font/Peepo.ttf", 18);
+    TTF_Font* menuFont = TTF_OpenFont("font/Peepo.ttf", 25);
 
-    if (!showMenu(renderer, font)) {
+    if (!showMenu(renderer, menuFont)) {
         SDL_DestroyWindow(window);
         SDL_DestroyRenderer(renderer);
         TTF_Quit();
@@ -124,6 +139,28 @@ int main(int argc, char* argv[]) {
             }
             updateBullet(SCREEN_WIDTH, SCREEN_HEIGHT);
             bulletCollision();
+
+            if (point1 == 5) {
+                if (showEnd(renderer, menuFont, "Tank 1 Wins!")) {
+                    point1 = 0;
+                    point2 = 0;
+                    if (!showMenu(renderer, menuFont)) {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            } else if (point2 == 5) {
+                if (showEnd(renderer, menuFont, "Tank 2 Wins!")) {
+                    point1 = 0;
+                    point2 = 0;
+                    if (!showMenu(renderer, menuFont)) {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            }
 
             past = now;
             timer1 += 10;

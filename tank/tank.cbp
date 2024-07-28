@@ -51,6 +51,8 @@
 		<Unit filename="collision.h" />
 		<Unit filename="control.cpp" />
 		<Unit filename="control.h" />
+		<Unit filename="end.cpp" />
+		<Unit filename="end.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

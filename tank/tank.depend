@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1722091637 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
+1722162159 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -11,6 +11,7 @@
 	"bullets.h"
 	"point.h"
 	"menu.h"
+	"end.h"
 
 1721380452 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\control.cpp
 	"Control.h"
@@ -46,10 +47,18 @@
 1721732151 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\point.cpp
 	"point.h"
 
-1722091726 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.cpp
+1722162137 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.cpp
 	"menu.h"
 
-1722091700 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.h
+1722162125 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\menu.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
+
+1722160834 source:c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\end.cpp
+	"end.h"
+
+1722162118 c:\users\laptop\documents\hk-hè\ltnc hè\btl\23020583-hoangvietanh-2215-50\tank\end.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
