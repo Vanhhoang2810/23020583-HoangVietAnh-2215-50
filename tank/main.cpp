@@ -42,6 +42,7 @@ bool hit2 = false;
 
 int timer1 = 0, timer2 = 0;
 int point1 = 0, point2 = 0;
+int tank1Angle = 0, tank2Angle = 0;
 
 vector<Bullet> bullets;
 
@@ -85,12 +86,14 @@ int main(int argc, char* argv[]) {
     dstTank1.x = 0;
     dstTank1.y = SCREEN_HEIGHT / 2;
     dstTank1.w = dstTank1.h = 64;
+    tank1Angle = 90;
+
 
     dstTank2.x = SCREEN_WIDTH - 64;
     dstTank2.y = SCREEN_HEIGHT / 2;
     dstTank2.w = dstTank2.h = 64;
+    tank2Angle = 270;
 
-    int tank1Angle = 0, tank2Angle = 0;
     int tank1Radian = tank1Angle * M_PI/180;
     int tank2Radian = tank2Angle * M_PI/180;
     int past = SDL_GetTicks();

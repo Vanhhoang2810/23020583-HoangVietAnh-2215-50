@@ -52,6 +52,9 @@ void bulletCollision() {
                     dstTank1.y = SCREEN_HEIGHT / 2;
                     dstTank2.x = SCREEN_WIDTH - 64;
                     dstTank2.y = SCREEN_HEIGHT / 2;
+                    bullets.clear();
+                    tank1Angle = 90;
+                    tank2Angle = 270;
                 }
             } else if (bullets[i].tankID == 2) {
                 if (checkCollision(bullets[i].rect, dstTank1)) {
@@ -62,7 +65,9 @@ void bulletCollision() {
                     dstTank1.y = SCREEN_HEIGHT / 2;
                     dstTank2.x = SCREEN_WIDTH - 64;
                     dstTank2.y = SCREEN_HEIGHT / 2;
-
+                    bullets.clear();
+                    tank1Angle = 90;
+                    tank2Angle = 270;
                 }
             }
         }

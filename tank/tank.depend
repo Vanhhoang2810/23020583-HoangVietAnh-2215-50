@@ -63,10 +63,10 @@
 	<SDL_ttf.h>
 	<string>
 
-1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+1722348887 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.cpp
 	"bullets.h"
 
-1721732104 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.h
+1722348887 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.h
 	<iostream>
 	<cmath>
 	<algorithm>
