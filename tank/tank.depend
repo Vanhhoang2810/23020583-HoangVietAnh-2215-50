@@ -63,3 +63,67 @@
 	<SDL_ttf.h>
 	<string>
 
+1721732078 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+	"bullets.h"
+
+1721732104 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.h
+	<iostream>
+	<cmath>
+	<algorithm>
+	<SDL.h>
+	<vector>
+	"collision.h"
+
+1721351330 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\collision.h
+	<iostream>
+	<SDL.h>
+
+1721351330 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\collision.cpp
+	"collision.h"
+
+1721380452 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\control.cpp
+	"Control.h"
+
+1721380471 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\control.h
+	<iostream>
+	<SDL.h>
+
+1722162208 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.cpp
+	"end.h"
+
+1722162118 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
+
+1722162159 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
+	<iostream>
+	<algorithm>
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<SDL_ttf.h>
+	"Control.h"
+	"collision.h"
+	"bullets.h"
+	"point.h"
+	"menu.h"
+	"end.h"
+
+1721999460 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\point.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
+
+1722162125 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\menu.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<string>
+
+1722162137 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\menu.cpp
+	"menu.h"
+
+1721732151 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\point.cpp
+	"point.h"
+
