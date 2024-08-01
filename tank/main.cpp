@@ -15,8 +15,9 @@ using namespace std;
 
 const int SCREEN_WIDTH = 720;
 const int SCREEN_HEIGHT = 720;
-const int MOVE_SPEED = 1;
+const int MOVE_SPEED = 2;
 const int FIRE_RATE = 200;
+const int CELL_SIZE = 80;
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -25,6 +26,9 @@ SDL_Texture* background = NULL;
 SDL_Texture* tank1 = NULL;
 SDL_Texture* tank2 = NULL;
 SDL_Texture* bulletTex = NULL;
+SDL_Texture* hWallTex = NULL;
+SDL_Texture* vWallTex = NULL;
+
 
 bool up1 = false;
 bool down1 = false;
@@ -45,6 +49,8 @@ int point1 = 0, point2 = 0;
 int tank1Angle = 0, tank2Angle = 0;
 
 vector<Bullet> bullets;
+vector<SDL_Rect> hWalls;
+vector<SDL_Rect> vWalls;
 
 void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_Color color, int y, SDL_Rect* rect) {
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
@@ -59,6 +65,42 @@ void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_
     SDL_DestroyTexture(textTexture);
 }
 
+void initMaze() {
+    // Define walls using a grid
+    int maze[9][9] = {
+        {1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 0, 0, 1, 0, 1},
+        {1, 0, 1, 1, 1, 1, 1, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 1, 1, 1, 1, 0, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1}
+    };
+
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (maze[i][j] == 1) {
+                if (i % 2 == 0) {
+                    hWalls.push_back({ j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE });
+                } else {
+                    vWalls.push_back({ j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE });
+                }
+            }
+        }
+    }
+}
+
+
+void renderMaze(SDL_Renderer* renderer) {
+    for (const SDL_Rect& wall : hWalls) {
+        SDL_RenderCopy(renderer, hWallTex, NULL, &wall);
+    }
+    for (const SDL_Rect& wall : vWalls) {
+        SDL_RenderCopy(renderer, vWallTex, NULL, &wall);
+    }
+}
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -82,6 +124,9 @@ int main(int argc, char* argv[]) {
     tank1 = IMG_LoadTexture(renderer, "img/tank1.png");
     tank2 = IMG_LoadTexture(renderer, "img/tank2.png");
     bulletTex = IMG_LoadTexture(renderer, "img/bullet.png");
+    hWallTex = IMG_LoadTexture(renderer, "img/hWall.png");
+    vWallTex = IMG_LoadTexture(renderer, "img/vWall.png");
+
 
     dstTank1.x = 0;
     dstTank1.y = SCREEN_HEIGHT / 2;
@@ -97,6 +142,8 @@ int main(int argc, char* argv[]) {
     int tank1Radian = tank1Angle * M_PI/180;
     int tank2Radian = tank2Angle * M_PI/180;
     int past = SDL_GetTicks();
+
+    initMaze();
 
     SDL_Event ev;
 
@@ -180,6 +227,9 @@ int main(int argc, char* argv[]) {
         SDL_RenderCopy(renderer, background, NULL, NULL);
         SDL_RenderCopyEx(renderer, tank1, NULL, &dstTank1, tank1Angle, NULL, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, tank2, NULL, &dstTank2, tank2Angle, NULL, SDL_FLIP_NONE);
+
+        renderMaze(renderer);
+
         renderScores(renderer, font, point1, point2);
 
         renderBullet();
