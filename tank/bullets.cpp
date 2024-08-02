@@ -37,7 +37,6 @@ void updateBullet(int width, int height) {
         }
     }
 
-    bullets.erase(remove_if(bullets.begin(), bullets.end(), [](const Bullet& b) { return !b.active; }), bullets.end());
 }
 
 void bulletCollision() {

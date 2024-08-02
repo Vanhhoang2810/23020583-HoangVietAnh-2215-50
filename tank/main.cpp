@@ -10,6 +10,7 @@
 #include "point.h"
 #include "menu.h"
 #include "end.h"
+#include "map.h"
 
 using namespace std;
 
@@ -63,43 +64,6 @@ void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_
     SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(textTexture);
-}
-
-void initMaze() {
-    // Define walls using a grid
-    int maze[9][9] = {
-        {1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 1, 0, 0, 0, 1},
-        {1, 0, 1, 0, 1, 0, 1, 0, 1},
-        {1, 0, 1, 0, 0, 0, 1, 0, 1},
-        {1, 0, 1, 1, 1, 1, 1, 0, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 1, 1, 1, 1, 0, 1},
-        {1, 0, 0, 0, 1, 0, 0, 0, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1}
-    };
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            if (maze[i][j] == 1) {
-                if (i % 2 == 0) {
-                    hWalls.push_back({ j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE });
-                } else {
-                    vWalls.push_back({ j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE });
-                }
-            }
-        }
-    }
-}
-
-
-void renderMaze(SDL_Renderer* renderer) {
-    for (const SDL_Rect& wall : hWalls) {
-        SDL_RenderCopy(renderer, hWallTex, NULL, &wall);
-    }
-    for (const SDL_Rect& wall : vWalls) {
-        SDL_RenderCopy(renderer, vWallTex, NULL, &wall);
-    }
 }
 
 int main(int argc, char* argv[]) {

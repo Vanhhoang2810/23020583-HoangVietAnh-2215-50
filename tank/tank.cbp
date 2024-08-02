@@ -54,6 +54,8 @@
 		<Unit filename="end.cpp" />
 		<Unit filename="end.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="map.cpp" />
+		<Unit filename="map.h" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
 		<Unit filename="point.cpp" />
