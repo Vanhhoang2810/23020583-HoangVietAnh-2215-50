@@ -91,15 +91,14 @@ int main(int argc, char* argv[]) {
     hWallTex = IMG_LoadTexture(renderer, "img/hWall.png");
     vWallTex = IMG_LoadTexture(renderer, "img/vWall.png");
 
-
-    dstTank1.x = 0;
-    dstTank1.y = SCREEN_HEIGHT / 2;
+    dstTank1.x = 20;
+    dstTank1.y = SCREEN_HEIGHT / 2 - 32;
     dstTank1.w = dstTank1.h = 64;
     tank1Angle = 90;
 
 
-    dstTank2.x = SCREEN_WIDTH - 64;
-    dstTank2.y = SCREEN_HEIGHT / 2;
+    dstTank2.x = SCREEN_WIDTH - 84;
+    dstTank2.y = SCREEN_HEIGHT / 2 - 32;
     dstTank2.w = dstTank2.h = 64;
     tank2Angle = 270;
 
@@ -156,21 +155,13 @@ int main(int argc, char* argv[]) {
 
             if (point1 == 5) {
                 if (showEnd(renderer, menuFont, "Tank 1 Wins!")) {
-                    point1 = 0;
-                    point2 = 0;
-                    if (!showMenu(renderer, menuFont)) {
-                        break;
-                    }
+                    resetGame();
                 } else {
                     break;
                 }
             } else if (point2 == 5) {
                 if (showEnd(renderer, menuFont, "Tank 2 Wins!")) {
-                    point1 = 0;
-                    point2 = 0;
-                    if (!showMenu(renderer, menuFont)) {
-                        break;
-                    }
+                    resetGame();
                 } else {
                     break;
                 }

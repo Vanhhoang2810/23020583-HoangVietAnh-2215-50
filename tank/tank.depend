@@ -88,15 +88,17 @@
 	<iostream>
 	<SDL.h>
 
-1722162208 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.cpp
+1722696088 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.cpp
 	"end.h"
+	"bullets.h"
 
-1722162118 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.h
+1722696062 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\end.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string>
+	"map.h"
 
-1722593843 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
+1722694041 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -134,6 +136,6 @@
 	<SDL_image.h>
 	<vector>
 
-1722593843 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\map.cpp
+1722693965 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\map.cpp
 	"map.h"
 

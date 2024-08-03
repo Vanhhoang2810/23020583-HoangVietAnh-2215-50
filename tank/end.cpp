@@ -1,4 +1,7 @@
 #include "end.h"
+#include "bullets.h"
+
+extern vector<Bullet> bullets;
 
 bool showEnd(SDL_Renderer* renderer, TTF_Font* font, const string &message) {
     SDL_Color textColor = { 255, 255, 255, 255 };
@@ -32,4 +35,21 @@ bool showEnd(SDL_Renderer* renderer, TTF_Font* font, const string &message) {
     }
 
     return false;
+}
+
+void resetGame() {
+    dstTank1.x = 0;
+    dstTank1.y = SCREEN_HEIGHT / 2;
+    dstTank1.w = dstTank1.h = 64;
+    tank1Angle = 90;
+
+    dstTank2.x = SCREEN_WIDTH - 64;
+    dstTank2.y = SCREEN_HEIGHT / 2;
+    dstTank2.w = dstTank2.h = 64;
+    tank2Angle = 270;
+
+    point1 = 0;
+    point2 = 0;
+    bullets.clear();
+    initMaze();
 }
