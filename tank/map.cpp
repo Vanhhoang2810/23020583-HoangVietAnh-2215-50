@@ -1,5 +1,7 @@
 #include "map.h"
 
+int maze[9][9];
+
 void initMaze() {
     // Define walls using a grid
     int maze[9][9] = {
@@ -27,6 +29,21 @@ void initMaze() {
     }
 }
 
+bool checkMazeCollision(const SDL_Rect& rect) {
+    for (const SDL_Rect& wall : hWalls) {
+        if (SDL_HasIntersection(&rect, &wall)) {
+            return true;
+        }
+    }
+    for (const SDL_Rect& wall : vWalls) {
+        if (SDL_HasIntersection(&rect, &wall)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 
 void renderMaze(SDL_Renderer* renderer) {
     for (const SDL_Rect& wall : hWalls) {
@@ -36,3 +53,4 @@ void renderMaze(SDL_Renderer* renderer) {
         SDL_RenderCopy(renderer, vWallTex, NULL, &wall);
     }
 }
+

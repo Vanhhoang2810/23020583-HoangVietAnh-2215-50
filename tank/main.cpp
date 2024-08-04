@@ -102,8 +102,6 @@ int main(int argc, char* argv[]) {
     dstTank2.w = dstTank2.h = 64;
     tank2Angle = 270;
 
-    int tank1Radian = tank1Angle * M_PI/180;
-    int tank2Radian = tank2Angle * M_PI/180;
     int past = SDL_GetTicks();
 
     initMaze();
@@ -120,28 +118,52 @@ int main(int argc, char* argv[]) {
             if (up1) {
                 dstTank1.y -= MOVE_SPEED;
                 tank1Angle = 0;
+                if (checkMazeCollision(dstTank1)) {
+                    dstTank1.y += MOVE_SPEED;
+                }
             } else if (down1) {
                 dstTank1.y += MOVE_SPEED;
                 tank1Angle = 180;
+                if (checkMazeCollision(dstTank1)) {
+                    dstTank1.y -= MOVE_SPEED;
+                }
             } else if (left1) {
                 dstTank1.x -= MOVE_SPEED;
                 tank1Angle = 270;
+                if (checkMazeCollision(dstTank1)) {
+                    dstTank1.x += MOVE_SPEED;
+                }
             } else if (right1) {
                 dstTank1.x += MOVE_SPEED;
                 tank1Angle = 90;
+                if (checkMazeCollision(dstTank1)) {
+                    dstTank1.x -= MOVE_SPEED;
+                }
             }
             if (up2) {
                 dstTank2.y -= MOVE_SPEED;
                 tank2Angle = 0;
+                if (checkMazeCollision(dstTank2)) {
+                    dstTank2.y += MOVE_SPEED;
+                }
             } else if (down2) {
                 dstTank2.y += MOVE_SPEED;
                 tank2Angle = 180;
+                if (checkMazeCollision(dstTank2)) {
+                    dstTank2.y -= MOVE_SPEED;
+                }
             } else if (left2) {
                 dstTank2.x -= MOVE_SPEED;
                 tank2Angle = 270;
+                if (checkMazeCollision(dstTank2)) {
+                    dstTank2.x += MOVE_SPEED;
+                }
             } else if (right2) {
                 dstTank2.x += MOVE_SPEED;
                 tank2Angle = 90;
+                if (checkMazeCollision(dstTank2)) {
+                    dstTank2.x -= MOVE_SPEED;
+                }
             }
 
             if (shoot1){
@@ -200,9 +222,15 @@ int main(int argc, char* argv[]) {
     SDL_DestroyTexture(tank1);
     SDL_DestroyTexture(tank2);
     SDL_DestroyTexture(bulletTex);
+    SDL_DestroyTexture(hWallTex);
+    SDL_DestroyTexture(vWallTex);
+
 
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+
+    TTF_CloseFont(font);
+    TTF_CloseFont(menuFont);
 
     IMG_Quit();
     SDL_Quit();
