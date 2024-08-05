@@ -52,19 +52,6 @@ vector<Bullet> bullets;
 vector<SDL_Rect> hWalls;
 vector<SDL_Rect> vWalls;
 
-/*void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_Color color, int y, SDL_Rect* rect) {
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
-    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-    int x = (720 - textSurface->w) / 2;
-    SDL_Rect textRect = {x, y, textSurface->w, textSurface->h};
-    if (rect) {
-        *rect = textRect;
-    }
-    SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-    SDL_FreeSurface(textSurface);
-    SDL_DestroyTexture(textTexture);
-}*/
-
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);

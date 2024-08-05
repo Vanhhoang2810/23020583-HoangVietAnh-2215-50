@@ -55,7 +55,9 @@ void bulletCollision() {
                     dstTank1.x = 20;
                     dstTank1.y = SCREEN_HEIGHT / 2 - 32;
                     dstTank1.w = dstTank1.h = 64;
-                    tank1Angle = 90;
+                    dstTank2.x = SCREEN_WIDTH - 84;
+                    dstTank2.y = SCREEN_HEIGHT / 2 - 32;
+                    dstTank2.w = dstTank2.h = 64;
                     bullets.clear();
                     tank1Angle = 90;
                     tank2Angle = 270;
@@ -65,10 +67,12 @@ void bulletCollision() {
                     hit1 = true;
                     bullets[i].active = false;
                     point2++;
+                    dstTank1.x = 20;
+                    dstTank1.y = SCREEN_HEIGHT / 2 - 32;
+                    dstTank1.w = dstTank1.h = 64;
                     dstTank2.x = SCREEN_WIDTH - 84;
                     dstTank2.y = SCREEN_HEIGHT / 2 - 32;
                     dstTank2.w = dstTank2.h = 64;
-                    tank2Angle = 270;
                     bullets.clear();
                     tank1Angle = 90;
                     tank2Angle = 270;

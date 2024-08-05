@@ -100,7 +100,7 @@
 	<string>
 	"map.h"
 
-1722781822 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
+1722853300 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -113,7 +113,6 @@
 	"point.h"
 	"menu.h"
 	"end.h"
-	"map.h"
 
 1721999460 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\point.h
 	<iostream>
