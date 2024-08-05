@@ -1,5 +1,6 @@
 #include "end.h"
 #include "bullets.h"
+#include "menu.h"
 
 extern vector<Bullet> bullets;
 

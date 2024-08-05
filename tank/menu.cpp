@@ -35,3 +35,16 @@ bool showMenu(SDL_Renderer* renderer, TTF_Font* font) {
     return false;
 }
 
+void renderText(SDL_Renderer* renderer, const string &text, TTF_Font* font, SDL_Color color, int y, SDL_Rect* rect) {
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    int x = (720 - textSurface->w) / 2;
+    SDL_Rect textRect = {x, y, textSurface->w, textSurface->h};
+    if (rect) {
+        *rect = textRect;
+    }
+    SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(textTexture);
+}
+
