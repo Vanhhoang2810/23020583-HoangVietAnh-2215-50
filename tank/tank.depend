@@ -63,11 +63,11 @@
 	<SDL_ttf.h>
 	<string>
 
-1722853366 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.cpp
+1722934570 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.cpp
 	"bullets.h"
 	"map.h"
 
-1722348887 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.h
+1722934716 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\bullets.h
 	<iostream>
 	<cmath>
 	<algorithm>
@@ -100,7 +100,7 @@
 	<string>
 	"map.h"
 
-1722934343 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
+1722935601 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\main.cpp
 	<iostream>
 	<algorithm>
 	<SDL.h>
@@ -114,6 +114,7 @@
 	"menu.h"
 	"end.h"
 	"map.h"
+	"tutorial.h"
 
 1721999460 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\point.h
 	<iostream>
@@ -126,8 +127,9 @@
 	<SDL_ttf.h>
 	<string>
 
-1722852539 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\menu.cpp
+1722935704 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\menu.cpp
 	"menu.h"
+	"tutorial.h"
 
 1721732151 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\point.cpp
 	"point.h"
@@ -140,4 +142,13 @@
 
 1722782326 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\map.cpp
 	"map.h"
+
+1722935300 c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\tutorial.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+
+1722935360 source:c:\users\laptop\documents\hk-hè\ltnc hè\23020583-hoangvietanh-2215-50\tank\tutorial.cpp
+	"tutorial.h"
+	"menu.h"
 

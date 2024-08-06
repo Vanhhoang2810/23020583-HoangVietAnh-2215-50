@@ -11,6 +11,7 @@
 #include "menu.h"
 #include "end.h"
 #include "map.h"
+#include "tutorial.h"
 
 using namespace std;
 
@@ -68,7 +69,6 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 0;
     }
-
 
     background = IMG_LoadTexture(renderer, "img/background.png");
     tank1 = IMG_LoadTexture(renderer, "img/tank1.png");

@@ -1,11 +1,11 @@
 #include "menu.h"
-
+#include "tutorial.h"
 
 bool showMenu(SDL_Renderer* renderer, TTF_Font* font) {
     SDL_Color textColor = { 255, 255, 255, 255 };
     bool menuRunning = true;
     SDL_Event event;
-    SDL_Rect start, exit;
+    SDL_Rect start, exit, help;
 
     while (menuRunning) {
         while (SDL_PollEvent(&event)) {
@@ -22,13 +22,17 @@ bool showMenu(SDL_Renderer* renderer, TTF_Font* font) {
                 if (SDL_PointInRect(&mousePoint, &exit)) {
                     return false;
                 }
+                if (SDL_PointInRect(&mousePoint, &help)) {
+                    showTutorial(renderer, font);
+                }
             }
         }
 
         SDL_RenderClear(renderer);
         renderText(renderer, "Tank Trouble", font, textColor, 180, NULL);
         renderText(renderer, "Start Game", font, textColor, 360, &start);
-        renderText(renderer, "Exit", font, textColor, 410, &exit);
+        renderText(renderer, "Help", font, textColor, 410 , &help);
+        renderText(renderer, "Exit", font, textColor, 460, &exit);
         SDL_RenderPresent(renderer);
     }
 
