@@ -60,6 +60,8 @@
 		<Unit filename="menu.h" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
+		<Unit filename="tutorial.cpp" />
+		<Unit filename="tutorial.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
