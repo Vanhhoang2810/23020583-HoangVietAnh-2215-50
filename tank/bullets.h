@@ -32,4 +32,6 @@ void renderBullet();
 
 void updateBullet(int width, int height);
 
+void restage(SDL_Rect& dstTank1, SDL_Rect& dstTank2);
+
 void bulletCollision();

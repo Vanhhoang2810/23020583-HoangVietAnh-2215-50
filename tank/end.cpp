@@ -16,9 +16,9 @@ bool showEnd(SDL_Renderer* renderer, TTF_Font* font, const string &message) {
                 return false;
             }
             if (event.type == SDL_MOUSEBUTTONDOWN) {
-                int x, y;
-                SDL_GetMouseState(&x, &y);
-                SDL_Point mousePoint = {x, y};
+                    int x, y;
+                    SDL_GetMouseState(&x, &y);
+                    SDL_Point mousePoint = {x, y};
                 if (SDL_PointInRect(&mousePoint, &replay)) {
                     return true;
                 }

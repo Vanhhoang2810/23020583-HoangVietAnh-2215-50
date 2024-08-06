@@ -35,14 +35,12 @@ bool down1 = false;
 bool left1 = false;
 bool right1 = false;
 bool shoot1 = false;
-bool hit1 = false;
 
 bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
 bool shoot2 = false;
-bool hit2 = false;
 
 int timer1 = 0, timer2 = 0;
 int point1 = 0, point2 = 0;
@@ -64,6 +62,8 @@ int main(int argc, char* argv[]) {
     if (!showMenu(renderer, menuFont)) {
         SDL_DestroyWindow(window);
         SDL_DestroyRenderer(renderer);
+        TTF_CloseFont(font);
+        TTF_CloseFont(menuFont);
         TTF_Quit();
         SDL_Quit();
         return 0;
@@ -81,7 +81,6 @@ int main(int argc, char* argv[]) {
     dstTank1.y = SCREEN_HEIGHT / 2 - 32;
     dstTank1.w = dstTank1.h = 64;
     tank1Angle = 90;
-
 
     dstTank2.x = SCREEN_WIDTH - 84;
     dstTank2.y = SCREEN_HEIGHT / 2 - 32;

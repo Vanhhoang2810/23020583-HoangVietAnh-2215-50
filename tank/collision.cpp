@@ -41,8 +41,10 @@ void collision(SDL_Rect& obj1, SDL_Rect& obj2) {
         if (abs(deltaX) > abs(deltaY)) {
             if(deltaX > 0) {
                 obj1.x += 1;
+                obj2.x -= 1;
             } else {
                 obj1.x -= 1;
+                obj2.x += 1;
             }
             if (checkCollision(obj1, obj2)) {
                 colliding = true;
@@ -50,8 +52,10 @@ void collision(SDL_Rect& obj1, SDL_Rect& obj2) {
         } else {
             if(deltaY > 0) {
                 obj1.y += 1;
+                obj2.y -= 1;
             } else {
                 obj1.y -= 1;
+                obj2.y += 1;
             }
             if (checkCollision(obj1, obj2)) {
                 colliding = true;
