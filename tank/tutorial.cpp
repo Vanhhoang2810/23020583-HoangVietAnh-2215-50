@@ -29,7 +29,7 @@ bool showTutorial(SDL_Renderer* renderer, TTF_Font* font) {
         renderText(renderer, "WASD - Move", font, textColor, 150, NULL);
         renderText(renderer, "SPACE - Shoot", font, textColor, 200, NULL);
 
-        renderText(renderer, "Player 2 Controls:", font, textColor, 400, NULL);
+        renderText(renderer, "Player 2:", font, textColor, 400, NULL);
         renderText(renderer, "Arrow Keys - Move", font, textColor, 450, NULL);
         renderText(renderer, "Numpad 1 - Shoot", font, textColor, 500, NULL);
 

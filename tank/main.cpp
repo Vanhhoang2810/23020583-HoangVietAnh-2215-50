@@ -180,7 +180,7 @@ int main(int argc, char* argv[]) {
         }
 
         keepInWindow(dstTank1, dstTank2, SCREEN_WIDTH, SCREEN_HEIGHT);
-        if (dstTank1.x < dstTank2.x + dstTank2.w && dstTank1.x + dstTank1.w > dstTank2.x && dstTank1.y < dstTank2.y + dstTank2.h && dstTank1.y + dstTank1.h > dstTank2.y) {
+        if (checkCollision(dstTank1, dstTank2)) {
             collision(dstTank1, dstTank2);
         }
 
