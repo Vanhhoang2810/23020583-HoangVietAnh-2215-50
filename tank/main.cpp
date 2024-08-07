@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <vector>
