@@ -1,7 +1,7 @@
 # Tank Trouble 
 đây là bài tập lớn cho lớp INT2215 50, của Hoàng Việt Anh
 
-Mục tiêu điểm: 8-9
+## Mục tiêu điểm: 8
 
 ## Những chức năng đã có:
 - một hệ thống menu tương đối hoàn chỉnh
