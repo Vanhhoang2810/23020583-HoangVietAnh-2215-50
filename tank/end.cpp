@@ -39,13 +39,13 @@ bool showEnd(SDL_Renderer* renderer, TTF_Font* font, const string &message) {
 }
 
 void resetGame() {
-    dstTank1.x = 0;
-    dstTank1.y = SCREEN_HEIGHT / 2;
+    dstTank1.x = 20;
+    dstTank1.y = SCREEN_HEIGHT / 2 - 32;
     dstTank1.w = dstTank1.h = 64;
     tank1Angle = 90;
 
-    dstTank2.x = SCREEN_WIDTH - 64;
-    dstTank2.y = SCREEN_HEIGHT / 2;
+    dstTank2.x = SCREEN_WIDTH - 84;
+    dstTank2.y = SCREEN_HEIGHT / 2 - 32;
     dstTank2.w = dstTank2.h = 64;
     tank2Angle = 270;
 

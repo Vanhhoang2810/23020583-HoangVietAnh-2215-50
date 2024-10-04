@@ -16,7 +16,8 @@ using namespace std;
 
 const int SCREEN_WIDTH = 720;
 const int SCREEN_HEIGHT = 720;
-const int MOVE_SPEED = 2;
+const int MOVE_SPEED_1 = 2;
+const int MOVE_SPEED_2 = 4;
 const int FIRE_RATE = 200;
 const int CELL_SIZE = 80;
 
@@ -35,12 +36,14 @@ bool down1 = false;
 bool left1 = false;
 bool right1 = false;
 bool shoot1 = false;
+bool shield1 = false;
 
 bool up2 = false;
 bool down2 = false;
 bool left2 = false;
 bool right2 = false;
 bool shoot2 = false;
+bool shield2 = false;
 
 int timer1 = 0, timer2 = 0;
 int point1 = 0, point2 = 0;
@@ -100,53 +103,53 @@ int main(int argc, char* argv[]) {
         int now = SDL_GetTicks();
         if (now - past >= 10) {
             if (up1) {
-                dstTank1.y -= MOVE_SPEED;
+                dstTank1.y -= MOVE_SPEED_1;
                 tank1Angle = 0;
                 if (checkMazeCollision(dstTank1)) {
-                    dstTank1.y += MOVE_SPEED;
+                    dstTank1.y += MOVE_SPEED_1;
                 }
             } else if (down1) {
-                dstTank1.y += MOVE_SPEED;
+                dstTank1.y += MOVE_SPEED_1;
                 tank1Angle = 180;
                 if (checkMazeCollision(dstTank1)) {
-                    dstTank1.y -= MOVE_SPEED;
+                    dstTank1.y -= MOVE_SPEED_1;
                 }
             } else if (left1) {
-                dstTank1.x -= MOVE_SPEED;
+                dstTank1.x -= MOVE_SPEED_1;
                 tank1Angle = 270;
                 if (checkMazeCollision(dstTank1)) {
-                    dstTank1.x += MOVE_SPEED;
+                    dstTank1.x += MOVE_SPEED_1;
                 }
             } else if (right1) {
-                dstTank1.x += MOVE_SPEED;
+                dstTank1.x += MOVE_SPEED_1;
                 tank1Angle = 90;
                 if (checkMazeCollision(dstTank1)) {
-                    dstTank1.x -= MOVE_SPEED;
+                    dstTank1.x -= MOVE_SPEED_1;
                 }
             }
             if (up2) {
-                dstTank2.y -= MOVE_SPEED;
+                dstTank2.y -= MOVE_SPEED_2;
                 tank2Angle = 0;
                 if (checkMazeCollision(dstTank2)) {
-                    dstTank2.y += MOVE_SPEED;
+                    dstTank2.y += MOVE_SPEED_2;
                 }
             } else if (down2) {
-                dstTank2.y += MOVE_SPEED;
+                dstTank2.y += MOVE_SPEED_2;
                 tank2Angle = 180;
                 if (checkMazeCollision(dstTank2)) {
-                    dstTank2.y -= MOVE_SPEED;
+                    dstTank2.y -= MOVE_SPEED_2;
                 }
             } else if (left2) {
-                dstTank2.x -= MOVE_SPEED;
+                dstTank2.x -= MOVE_SPEED_2;
                 tank2Angle = 270;
                 if (checkMazeCollision(dstTank2)) {
-                    dstTank2.x += MOVE_SPEED;
+                    dstTank2.x += MOVE_SPEED_2;
                 }
             } else if (right2) {
-                dstTank2.x += MOVE_SPEED;
+                dstTank2.x += MOVE_SPEED_2;
                 tank2Angle = 90;
                 if (checkMazeCollision(dstTank2)) {
-                    dstTank2.x -= MOVE_SPEED;
+                    dstTank2.x -= MOVE_SPEED_2;
                 }
             }
 

@@ -1,5 +1,7 @@
 #include "bullets.h"
 #include "map.h"
+#include "control.h"
+#include "collision.h"
 
 void shootBullet(int tankX, int tankY, float angle, int& timer, int tankID) {
     if (timer >= FIRE_RATE) {
@@ -56,19 +58,29 @@ void restage(SDL_Rect& dstTank1, SDL_Rect& dstTank2) {
 }
 
 void bulletCollision() {
-    for (int i = 0; i<bullets.size(); i++) {
+    for (int i = 0; i < bullets.size(); i++) {
         if (bullets[i].active) {
             if (bullets[i].tankID == 1) {
                 if (checkCollision(bullets[i].rect, dstTank2)) {
-                    bullets[i].active = false;
-                    point1++;
-                    restage(dstTank1, dstTank2);
+                    if (shield2) {
+                        bullets[i].active = false;
+                        shield2 = false;
+                    } else {
+                        bullets[i].active = false;
+                        point1++;
+                        restage(dstTank1, dstTank2);
+                    }
                 }
             } else if (bullets[i].tankID == 2) {
                 if (checkCollision(bullets[i].rect, dstTank1)) {
-                    bullets[i].active = false;
-                    point2++;
-                    restage(dstTank1, dstTank2);
+                    if (shield1) {
+                        shield1 = false;
+                        bullets[i].active = false;
+                    } else {
+                        bullets[i].active = false;
+                        point2++;
+                        restage(dstTank1, dstTank2);
+                    }
                 }
             }
         }
@@ -81,5 +93,4 @@ void bulletCollision() {
         }
     }
 }
-
 
